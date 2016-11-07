@@ -1,0 +1,17 @@
+<form action="" method="post">
+{% csrf_token %}
+Analyte:<input type="text" name="analyte" value="{{rg.analyte}}"></br>
+Fluorochrome:<input type="text" name="fluor" value="{{rg.fluor}}"></br>
+Manufacturer:<input type="text" name="manufacturer" value="{{rg.manufacturer}}"></br>
+Item number:<input type="text" name="item_number" value="{{rg.item_number}}"></br>
+Manufacturer volume:<input type="text" name="manu_volume" value="{{rg.manu_volume}}"></br>
+Volume per test:<input type="text" name="volume_per_test" value="{{rg.volume_per_test}}"></br>
+Volume per vial:<input type="text" name="volume_per_vial" value="{{rg.volume_per_vial}}"></br>
+Tests per vial:<input type="text" name="tests_per_vial" value="{{rg.tests_per_vial}}"></br>
+Concentration:<input type="text" name="concentration" value="{{rg.concentration}}"></br>
+Isotype:<input type="text" name="isotype" value="{{rg.isotype}}"></br>
+Light chain:<input type="text" name="light_chain" value="{{rg.light_chain}}"></br>
+Clone:<input type="text" name="clone" value="{{rg.clone}}"></br>
+Control cells:<input type="text" name="control_cells" value="{{rg.control_cells}}"></br></br>
+<input type="submit" value="Change" />
+</form>

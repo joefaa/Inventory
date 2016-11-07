@@ -1,0 +1,12 @@
+{% if reagent_list %}
+    <p>Reagents: {{rgt_count}} Antibody reagents: {{ab_count}}<p>
+      
+    <ul>
+    {% for reagent in reagent_list %}
+        <li>{{reagent.id}}. <a href="{% url 'inventory:detail' reagent.id %}">{{ reagent.reagent_name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No reagents are available.</p>
+{% endif %}
+<a href="{% url 'inventory:index' %}">Index</a>

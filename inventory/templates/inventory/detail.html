@@ -1,0 +1,21 @@
+<h3>{{rg.antibody_reagent.reagent}}<h3>
+<table>
+  <tr><td>Index number:</td><td>{{rg.antibody_reagent.reagent_id}}</td></tr>
+  <tr><td>Reagent:</td><td>{{rg.antibody_reagent.reagent}}</td></tr>
+  <tr><td>Analyte:</td><td>{{rg.antibody_reagent.analyte}}</td></tr>
+  <tr><td>Fluorochrome:</td><td>{{rg.antibody_reagent.fluor}}</td></tr>
+  <tr><td>Clone:</td><td>{{rg.antibody_reagent.clone}}</td></tr>
+  <tr><td>Isotype:</td><td>{{rg.antibody_reagent.isotype}}</td></tr>
+  <tr><td>Light chain:</td><td>{{rg.antibody_reagent.light_chain}}</td></tr>
+  <tr><td>Volume per test (uL):</td><td>{{rg.antibody_reagent.volume_per_test}}</td></tr>
+  <tr><td>Volume per vial (uL):</td><td>{{rg.antibody_reagent.volume_per_vial}}</td></tr>
+  <tr><td>Tests per vial:</td><td>{{rg.antibody_reagent.tests_per_vial}}</td></tr>
+  <tr><td>Concentration (ug/mL):</td><td>{{rg.antibody_reagent.concentration}}</td></tr>
+  <tr><td>Manufacturer:</td><td>{{rg.antibody_reagent.manufacturer}}</td></tr>
+  <tr><td>Order number:</td><td>{{rg.antibody_reagent.item_number}}</td></tr>
+  <tr><td>Control cells:</td><td>{{rg.antibody_reagent.control_cells}}</td></tr>
+</table></br>
+
+<form method="LINK" action="{% url 'inventory:change' rg.id%}">
+<input type="submit" value="Update">
+</form>
