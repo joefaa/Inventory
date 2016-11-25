@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% block content %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'inventory/style.css' %}" />
+<html>
+
+<head>
+<title>{%block head_title%}Immunopath{%endblock head_title%}</title>
+</head>
+
+<body>
+
+<div class='header'>
+
+<h1>Immunopathology at NYP/Weill Cornell<h1>
+</div>
+
+<div class='nav'>
+
+</div>
+
+{% endblock content %}
+<div class='content'>
+<h5>Reagents: {{rgt_count}}<h5>
+<h5>Antibody reagents: {{ab_count}}<h5>
+
+<a href="{% url 'inventory:index' %}">Reagent list</a>
+</div>
+</body>
+</html>

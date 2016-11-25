@@ -3,21 +3,34 @@ from .models import reagent, antibody_reagent
 from django.http import HttpResponseRedirect, HttpResponse
 from django.core.urlresolvers import reverse
 
-def index(request):
+def base(request):
     rgt_count = reagent.objects.count()
     ab_count = antibody_reagent.objects.count()
-    reagent_list = reagent.objects.order_by('id')
     context = {
-        'reagent_list':reagent_list,
         'ab_count':ab_count,
         'rgt_count':rgt_count,
     }
-    return render(request, 'inventory/index.html', context)
-
+    return render(request, 'inventory/base.html', context)
+# def index(request):
+#     reagent_list = reagent.objects.all()
+#     context = {
+#         'reagent_list':reagent_list,
+#     }
+#     return render(request, 'inventory/index.html', context)
 def detail(request, reagent_id):
     rg = get_object_or_404(reagent, id=reagent_id)
     context = {'rg':rg,}
     return render(request, 'inventory/detail.html', context)
+
+# def change(request, reagent_id):
+#     rg = get_object_or_404(reagent, reagent_id=reagent_id)
+#     context = {'rg':rg,}
+#
+#         return render(request, 'inventory/change.html', context)
+#     else:
+#         rg.save()
+#         return HttpResponseRedirect(reverse('inventory:detail', args=(rg.reagent_id,)))
+
 
 def change(request, reagent_id):
     rg = get_object_or_404(antibody_reagent, reagent_id=reagent_id)
@@ -30,7 +43,6 @@ def change(request, reagent_id):
         manu_volume = request.POST['manu_volume']
         volume_per_test = request.POST['volume_per_test']
         volume_per_vial = request.POST['volume_per_vial']
-        tests_per_vial = request.POST['tests_per_vial']
         concentration = request.POST['concentration']
         isotype = request.POST['isotype']
         light_chain = request.POST['light_chain']

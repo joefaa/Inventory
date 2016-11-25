@@ -11,15 +11,21 @@ class antibody_reagent(models.Model):
     fluor = models.CharField( max_length=20 )
     manufacturer = models.CharField( max_length=25 )
     item_number = models.CharField( max_length=25 )
-    manu_volume = models.IntegerField( default=0 )
-    volume_per_test = models.IntegerField( default=0 )
-    volume_per_vial = models.IntegerField( default=0 )
-    tests_per_vial = models.IntegerField( default=0 )
-    concentration = models.IntegerField( default=0 )
+    manu_volume = models.DecimalField( default=0, max_digits=7, decimal_places=2 )
+    volume_per_test = models.DecimalField( default=0, max_digits=7, decimal_places=2 )
+    volume_per_vial = models.DecimalField( default=0, max_digits=7, decimal_places=2 )
+    concentration = models.DecimalField( default=0, max_digits=7, decimal_places=2 )
     isotype = models.CharField( max_length=20 )
     light_chain = models.CharField( max_length=20 )
     clone = models.CharField( max_length=20 )
     control_cells = models.CharField( max_length=750 )
+    def _get_tests_per_vial(self):
+        if self.volume_per_test != 0 and self.volume_per_vial != 0:
+            tests_per_vial = self.volume_per_vial / self.volume_per_test
+            return(int(tests_per_vial))
+        else:
+            return(0)
+    tests_per_vial = property(_get_tests_per_vial)
     def __str__(self):
         return(self.reagent.reagent_name)
 
